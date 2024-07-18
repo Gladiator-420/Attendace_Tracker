@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Tracker</title>
+    <link rel="stylesheet" href="Attendance.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <ul>
+                Attendance Tracker
+            </ul>
+        </div>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li class="nav-item"><a href="#home">Home</a></li>
+                <li class="nav-item"><a href="https://swastik-portfolio-green.vercel.app/">Contact</a></li>
+            </ul>
+            <i class="fas fa-bars toggle-button"></i>
+        </div>
+    </nav>      
+    <div class="typing-effect">
+        <span class="typed-text"></span><span class="cursor">&nbsp;</span>
+    </div>
+    <section class="card-section">
+        <div class="navbar-second">
+            <div class="left">Manage your Subjects here</div>
+            <div class="right">
+                <a href="javascript:void(0)"><i class="fas fa-plus" onclick="addCard(this)"></i></a>
+                <a href="javascript:void(0)"><i class="fas fa-window-restore" onclick="showConfirmationDialog(this)"></i></a>
+            </div>
+        </div>
+        
+        <div class="card-container" id="card-container">
+             <!-- Initial Cards -->
+            <div class="card subject1" data-card-id="subject1">
+                <div class="card-options">
+                    <i class="fas fa-chevron-down" onclick="toggleOptions(this)"></i>
+                    <div class="options">
+                        <a href="javascript:void(0)" onclick="deleteCard(this)">Delete</a>
+                        <a href="javascript:void(0)" onclick="addCard(this)">Add</a>
+                        <a href="javascript:void(0)" onclick="openEditDialog(this)">Edit</a>
+                        <a href="javascript:void(0)" onclick="undoChange()(this)">Undo</a> <!-- New Undo option -->
+
+                    </div>
+                </div>
+                <h2 class="card-title">Subject 1</h2>
+                <div class="counter">0/0</div>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <div class="progress-percentage">0%</div>
+                <button class="present-button" onclick="markPresent(this)">Present</button>
+                <button class="absent-button" onclick="markAbsent(this)">Absent</button>
+                <button class="reset-button" onclick="resetCounter(this)">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+            <div class="card subject2" data-card-id="subject2">
+                <div class="card-options">
+                    <i class="fas fa-chevron-down" onclick="toggleOptions(this)"></i>
+                    <div class="options">
+                        <a href="javascript:void(0)" onclick="deleteCard(this)">Delete</a>
+                        <a href="javascript:void(0)" onclick="addCard(this)">Add</a>
+                        <a href="javascript:void(0)" onclick="openEditDialog(this)">Edit</a>
+                        <a href="javascript:void(0)" onclick="undoChange()(this)">Undo</a> <!-- New Undo option -->
+
+                    </div>
+                </div>
+                <h2 class="card-title">Subject 2</h2>
+                <div class="counter">0/0</div>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <div class="progress-percentage">0%</div>
+                <button class="present-button" onclick="markPresent(this)">Present</button>
+                <button class="absent-button" onclick="markAbsent(this)">Absent</button>
+                <button class="reset-button" onclick="resetCounter(this)">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+            <div class="card subject3" data-card-id="subject3">
+                <div class="card-options">
+                    <i class="fas fa-chevron-down" onclick="toggleOptions(this)"></i>
+                    <div class="options">
+                        <a href="javascript:void(0)" onclick="deleteCard(this)">Delete</a>
+                        <a href="javascript:void(0)" onclick="addCard(this)">Add</a>
+                        <a href="javascript:void(0)" onclick="openEditDialog(this)">Edit</a>
+                        <a href="javascript:void(0)" onclick="undoChange()(this)">Undo</a> <!-- New Undo option -->
+
+                    </div>
+                </div>
+                <h2 class="card-title">Subject 3</h2>
+                <div class="counter">0/0</div>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <div class="progress-percentage">0%</div>
+                <button class="present-button" onclick="markPresent(this)">Present</button>
+                <button class="absent-button" onclick="markAbsent(this)">Absent</button>
+                <button class="reset-button" onclick="resetCounter(this)">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Edit Dialog -->
+    <div id="edit-dialog" class="edit-dialog">
+        <div class="edit-dialog-content">
+            <span class="edit-dialog-close">&times;</span>
+            <h2>Edit Title</h2>
+            <input type="text" id="edit-input" placeholder="Enter new title">
+            <button id="save-button">Save</button><br>
+            <p class="restore-text">**This will restore card components.</p>
+
+            <button id="restore-button">Restore</button> <!-- New Restore button -->
+
+        </div>
+    </div>
+
+    <!-- Add Dialog -->
+    <div id="add-dialog" class="edit-dialog">
+        <div class="edit-dialog-content">
+            <span onclick="closeAddDialog()" class="edit-dialog-close">&times;</span>
+            <h2>Add Attendance</h2>
+            <input type="text" id="add-input" placeholder="Enter attendance details">
+            <button onclick="addAttendance()">Add</button>
+        </div>
+    </div>
+
+    <!-- Reset Dialog -->
+    <div id="reset-dialog" class="edit-dialog">
+        <div class="edit-dialog-content">
+            <span id="reset-dialog-close" class="edit-dialog-close">&times;</span>
+            <h2>Reset Counter</h2>
+            <p>Are you sure you want to reset the counter?</p>
+            <button id="reset-yes">Yes</button>
+            <button id="reset-no">No</button>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Dialog -->
+    <div id="delete-dialog" class="confirm-dialog">
+        <div class="confirm-dialog-content">
+            <span class="confirm-dialog-close" onclick="closeDeleteDialog()">&times;</span>
+            <h2>Confirm Delete</h2>
+            <p>Are you sure you want to delete this card?</p>
+            <button id="delete-yes" onclick="confirmDelete()">Yes</button>
+            <button id="delete-no" onclick="closeDeleteDialog()">No</button>
+        </div>
+    </div>
+     <!-- Confirmation Dialog for Restore -->
+  <!-- Confirmation Dialog for Restore -->
+<div id="confirmation-dialog" class="confirmation-dialog">
+    <div class="confirmation-dialog-content">
+        <span class="confirm-dialog-close">&times;</span> <!-- Close icon -->
+        <h2>Confirm Restore</h2>
+        <p>Are you sure you want to restore the card section?</p>
+        <div class="confirmation-buttons">
+            <button id="confirm-restore">Yes</button>
+            <button id="cancel-restore">No</button>
+        </div>
+    </div>
+</div>
+
+
+    <script src="AttendanceTrack.js"></script>
+</body>
+</html>

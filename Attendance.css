@@ -1,0 +1,852 @@
+body {
+    background-color: black;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('Wallpaper.jpg') no-repeat center top;
+    background-size: cover;
+    transition: background-position 1s ease-out;
+}
+/* Webkit Browsers */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;  /* Background of the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ff004f;  /* Pink color for the thumb */
+    border-radius: 10px;  /* Rounded corners */
+    border: 3px solid #000000;  /* Adds space around the thumb */
+}
+
+/* Firefox */
+body {
+    scrollbar-width: thin;  /* Thin scrollbar */
+    scrollbar-color: #ff004f #000000;  /* Pink thumb, black track */
+}
+
+/* Edge and Internet Explorer */
+@supports (-ms-overflow-style: none) {
+    body {
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+}
+/* Add your existing CSS here */
+html {
+    scroll-behavior: smooth;
+}
+
+
+.typing-effect {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.cursor {
+    display: inline-block;
+    background-color: white;
+    width: 2px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+nav {
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    width: 90%;
+    max-width: 1200px;
+    padding: 0 40px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 25px;
+}
+
+.nav-item a {
+    position: relative;
+    text-decoration: none;
+}
+
+.nav-item a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    width: 0;
+    height: 2px;
+    background-color: #ff004f;
+    transition: width 0.5s;
+    scale: 0.8;
+}
+
+.nav-item a:hover::after {
+    width: 100%;
+}
+
+li {
+    display: inline-block;
+}
+
+.nav-left {
+    color: white;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item a:hover {
+    background-color: transparent;
+}
+.toggle-button {
+    margin-right: -160%;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+    display: none; /* Initially hide the hamburger icon */
+}
+
+.nav-links {
+    display: flex;
+}
+.toggle-button {
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .toggle-button.active {
+    transform: rotate(360deg);
+  }
+  
+    
+.content {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    padding-top: 70px; /* To account for the fixed navbar height */
+    padding-left: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.card-section {
+    background-color: rgba(7, 7, 7, 7);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px; /* Adjust the gap between cards */
+    padding: 110px 0;
+    margin-top: 110vh;
+   
+}
+.card-container {
+    margin-top: 90px;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    margin-left: 15%;
+}
+
+.card {
+    position: relative;
+    width: 600px ;
+    height: 200px;
+    padding: 20px;
+    border-left: 5px solid #ff004f; /* Add a pink border on the left */
+     border-radius: 10px;
+    overflow: hidden;
+    background-color: #100f0f;
+    transition: background-color 0.3s ease; /* Smooth transition for color change */
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #4f4f4f, #070707); /* Gradient from left to right */
+    transition: left 0.7s ease; /* Animation for left to right effect */
+    z-index: 1; /* Ensure the pseudo-element is behind the card content */
+}
+
+.card:hover::before {
+    left: 0; /* Move from left to right on hover */
+}
+
+.card-title {
+    font-size: 24px;
+    color:#ffffff;
+    margin: 0;
+    position: absolute; /* Changed to absolute to place it in the top-left corner */
+    top: 16px; /* Adjust the distance from the top */
+    left: 20px; /* Adjust the distance from the left */
+    z-index: 2; /* Ensure it is above the ::before pseudo-element */
+}
+
+.counter-updated {
+    animation: counter-update 0.3s ease-in-out; /* Animation for counter update */
+}
+
+@keyframes counter-update {
+    0% { transform: scale(1); } /* Initial state */
+    50% { transform: scale(1.1); } /* Scale up */
+    100% { transform: scale(1); } /* Return to normal */
+}
+
+.present-button,
+.absent-button,
+.reset-button {
+    color: white;
+
+    position: absolute;
+    bottom: 26px ; /* Adjust the distance from the bottom */
+    padding: 15px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1; /* Ensure it is above the ::before pseudo-element */
+}
+
+.present-button {
+    left: 40px; /* Adjust the distance from the left */
+    background-color: #ff004f;
+    font-size: 20px;
+    border: 2px solid #000000 ; /* Add a pink border */
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.present-button:hover {
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+.absent-button {
+    left: 170px; /* Adjust the distance from the left */
+    background-color: #ff004f;
+    font-size: 20px;
+    border: 2px solid #000000 ; /* Add a pink border */
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+.absent-button:hover {
+    background-color: white;
+    color: black;
+
+}
+
+.reset-button {
+    font-size: 20px;
+    right: 40px; /* Adjust the distance from the right */
+    background: none;
+    background-color: #ff004f;
+    border: 2px solid #000000 ; /* Add a pink border */
+    border-radius: 5px; /* Make sure the border is rounded */
+    transition: 0.5s ease;
+}
+
+.reset-button i {
+    font-size: 12px;
+}
+
+.reset-button:hover {
+    background-color: #ffffff;
+    color: black;
+
+}
+
+.subject1,
+.subject2,
+.subject3 {
+    border-left: 5px solid #ff004f; /* Same border color for all subjects */
+}
+
+.progress-container {
+    position: absolute;
+    top: 100px; /* Adjust the distance from the top */
+    width: 70%;
+    height: 14px;
+    background-color: #000000;
+    border-radius: 10px;
+    border: 2px solid #000000 ; /* Add a pink border */
+    overflow: hidden;
+    z-index: 2;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: #ffffff; /* Single color for progress bar */
+    border-radius: 10px;
+    transition: width 0.3s ease-in-out;
+}
+
+.progress-percentage {
+    position: absolute;
+    top: 97px; /* Adjust to match the progress bar's top */
+    left: 80%; /* Position it beside the progress bar */
+    font-size: 22px;
+    color: white;
+    z-index: 1;
+}
+
+.counter {
+    font-family: sans-serif; /* Change to desired font family */
+    font-size: 25px !important; /* Adjust the font size */
+    color: #ff004f !important; /* Change to desired color */
+    position: absolute;
+    font-weight: 700 ;
+    top: 60px; /* Adjust the distance from the top */
+    left: 30px; /* Adjust the distance from the left */
+    z-index: 2;
+}
+
+.card-options {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    cursor: pointer;
+    z-index: 2;
+    color: white;
+}
+
+.card-options i {
+    font-size: 21px;
+}
+
+.options {
+    display: none;width: 110px;
+height: 140px;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color:#ff004f !important;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+    height: max-content;
+}
+
+.options a {
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.options a:hover {
+    color:black;
+    background-color:#ffffff;
+}
+
+
+.options.show-options {
+    display: block;
+}
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    font-size: 30px;
+    transform: translateX(-50%);
+    background-color: #ff004f;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+    animation: slideIn 0.5s ease-in-out, fadeOut 0.5s 2.5s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-50%) translateY(-100%);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+
+
+/* Edit Dialog Styles */
+
+.edit-dialog {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    z-index:99999;
+    backdrop-filter: blur(7px); /* Blurred background */
+}
+
+.edit-dialog-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 80%;
+    text-align: center;
+    position: relative;
+}
+.edit-dialog-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.edit-dialog-content h2 {
+    margin-top: 0;
+}
+
+.edit-dialog-content input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#save-button,#restore-button {
+    background-color: #ff004f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#save-button:hover,#restore-button:hover {
+    background-color: #e60046;
+}
+.restore-text{
+    color: #ff004f;
+}
+.confirm-dialog {
+display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    z-index:99999;
+
+    backdrop-filter: blur(7px); /* Blurred background */
+}
+
+.confirm-dialog-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 80%;
+    text-align: center;
+    position: relative;
+}
+
+.confirm-dialog-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.confirm-dialog-content h2 {
+    margin-top: 0;
+}
+
+.confirm-dialog-content p {
+    margin: 20px 0;
+}
+#delete-yes,
+#delete-no ,
+#confirm-restore,
+#cancel-restore{
+    background-color: #ff004f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 10px;
+}
+
+#delete-yes:hover,
+#delete-no:hover ,
+#confirm-restore:hover,
+#cancel-restore:hover{
+    background-color: #e60046;
+}
+ 
+#reset-yes,
+#reset-no {
+    background-color: #ff004f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 10px;
+}
+
+#confirm-yes:hover,
+#confirm-no:hover {
+    background-color: #e60046;
+}
+
+  /* Style for the confirmation dialog */
+  .confirmation-dialog {
+    z-index:99999;
+ display: none;
+    position: fixed;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    width: 300px; /* Adjust width as needed */
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    text-align: center;
+    backdrop-filter: blur(7px); /* Blurred background */
+
+
+}
+
+.confirmation-dialog-content {
+    padding: 20px;
+}
+.confirm-dialog-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.confirmation-dialog-content h2 {
+    margin-top: 0;
+}
+
+.confirmation-dialog-content p {
+    margin-bottom: 20px;
+}
+
+.confirmation-buttons button {
+    margin: 0 10px;
+}
+.toggle-button {
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+    display: none; /* Initially hide the hamburger icon */
+}
+.navbar-second {
+    background-color: transparent;
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: 60px;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.navbar-second .left {
+    margin-left: 50px; /* Adjust margin as needed */
+    color: white;
+    font-size: 24px; /* Adjust font size as needed */
+}
+
+.navbar-second .right {
+    margin-right: 60px; /* Adjust margin as needed */
+}
+.navbar-second .right a,
+.navbar-second .right button,
+.navbar-second .right i {
+    transition:  0.2s ease ; /* Smooth transition over 0.3 seconds */
+}
+.navbar-second .right a,
+.navbar-second .right button {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px; /* Adjust spacing between icons */
+    font-size: 24px; /* Adjust font size as needed */
+}
+.navbar-second .right a:hover,
+.navbar-second .right button:hover,
+.navbar-second .right i:hover {
+    color:#ff004f; /* Change to your desired hover color */
+}
+
+@media screen and (max-width: 768px){
+    
+ 
+.card-container{
+    margin-left:11% ;
+}
+    
+    .card{
+        
+        width: 400px;
+        height: 200px;
+    padding: 20px;
+    }
+   
+    .card-title{
+        top: 14px;
+        left: 18px;
+        font-size: 20px;
+    }
+    .counter{
+        font-size: 24px !important;
+        top:45px
+    }
+    .progress-container{
+        top: 80px;
+    }
+    .present-button,.absent-button,.reset-button{
+        font-size: 20px;
+        padding: 12px;
+    }
+    .present-button{
+        left: 20px;
+    }
+    .absent-button{
+        left: 130px;
+    }
+    .reset-button{
+        right: 20px;
+    }.progress-percentage{
+        top: 77px;
+        font-size: 20px;
+    }
+    .card-options i{
+        font-size: 20px;
+        
+    }
+    .card-options{
+        top: 17px;
+        right: 25px;
+        z-index: 2222;
+
+    }
+    .options {
+        width: 100px;
+        right: 22px;
+        
+    }
+    .options a{
+        font-size: 20px;
+        padding: 8px 2px;
+        z-index: 2000;
+    }
+  
+       .notification{
+        font-size: 23px;
+       }
+.typing-effect{
+    font-size: 30px;
+}
+
+}
+/* Media Queries for smaller screens */
+@media screen and (max-width: 480px) {
+   
+    
+
+    .toggle-button {
+        display: block; /* Show hamburger icon */
+    }
+ 
+.card-container{
+    margin-left:4% ;
+}
+    
+    .card{
+        
+        width: 300px;
+        height: 140px;
+    padding: 20px;
+    }
+   
+    .card-title{
+        top: 8px;
+        left: 8px;
+        font-size: 18px;
+    }
+    .counter{
+        font-size: 20px !important;
+        top:35px
+    }
+    .progress-container{
+        top: 65px;
+    }
+    .present-button,.absent-button,.reset-button{
+        font-size: 14px;
+        padding: 10px;
+    }
+    .present-button{
+        left: 20px;
+    }
+    .absent-button{
+        left: 120px;
+    }
+    .reset-button{
+        right: 20px;
+    }.progress-percentage{
+        top: 63px;
+        font-size: 18px;
+    }
+    .card-options i{
+        font-size: 16px;
+        
+    }
+    .card-options{
+        top: 15px;
+        right: 15px;
+        z-index: 2222;
+
+    }
+    .options {
+        width: 76px;
+        right: 22px;
+        
+    }
+    .options a{
+        font-size: 14px;
+        padding: 8px 2px;
+        z-index: 2000;
+    }
+  
+       .notification{
+        font-size: 17px;
+       }
+.typing-effect{
+    font-size: 24px;
+}
+.nav-right {
+    flex-direction: column;
+    align-items: flex-end;
+}
+.nav-links {
+
+    display: none; /* Hide nav links by default */
+    flex-direction: column;
+    position: absolute;
+    top: 90px; /* Adjust as needed based on your navbar height */
+    right: 10px;
+   background-color: #ff004f;
+    border-radius: 8px;
+    padding: 50px;
+    z-index: 2;
+    box-shadow: 0 4px 8px  #ff004f;
+}
+
+.nav-links.active {
+    display: flex; /* Show nav links when active class is added */
+}
+.nav-item a{
+font-size: 20px;
+}
+.toggle-button {
+    display: block; /* Show hamburger icon */
+}
+
+.nav-item {
+    margin-bottom: 35px; /* Adjust spacing between links */
+}
+.navbar-second .left {
+    font-size: 20px; /* Adjust the font size for smaller screens */
+    margin-left: 0.5px; /* Adjust the left margin */
+}
+.navbar-second .right{
+    margin-right: 17px;
+}
+.navbar-second .right a,
+.navbar-second .right button {
+    font-size: 17px; /* Decrease font size for smaller screens */
+    margin-right: 1px; /* Adjust margin as needed */
+}
+body {
+    background-image: url('Wallpaper\(480px\).png'); /* Specify a different background image for smaller devices */
+}
+.nav-left{
+    margin-left: -30px;
+}}
+
