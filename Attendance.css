@@ -45,8 +45,9 @@ html {
     right: 10%;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 30px;
-    color: white;
+    font-size: 35px;
+    font-weight: 900;
+    color:#ff004f;
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -654,6 +655,23 @@ display: none;
     color:#ff004f; /* Change to your desired hover color */
 }
 
+footer {
+    text-align: center;
+    
+    padding: 5px;
+    background-color: #5b5b5b; /* Optional background color */
+}
+
+footer p {
+    color: #000000; /* Default text color */
+    font-size: 14px;
+}
+
+footer .highlight {
+    color: #ff004f; /* Change this color to the desired one */
+}
+
+
 @media screen and (max-width: 768px){
     
  
@@ -735,61 +753,61 @@ display: none;
     }
  
 .card-container{
-    margin-left:4% ;
+    margin-left:6% ;
 }
     
     .card{
         
         width: 300px;
-        height: 140px;
+        height: 180px;
     padding: 20px;
     }
    
     .card-title{
-        top: 8px;
+        top: 10px;
         left: 8px;
         font-size: 18px;
     }
     .counter{
-        font-size: 20px !important;
-        top:35px
+        font-size: 23px !important;
+        top:45px
     }
     .progress-container{
-        top: 65px;
+        top: 85px;
     }
     .present-button,.absent-button,.reset-button{
-        font-size: 14px;
-        padding: 10px;
+        font-size: 18px;
+        padding: 15px;
     }
     .present-button{
         left: 20px;
     }
     .absent-button{
-        left: 120px;
+        left: 130px;
     }
     .reset-button{
         right: 20px;
     }.progress-percentage{
-        top: 63px;
-        font-size: 18px;
+        top: 80px;
+        font-size: 20px;
     }
     .card-options i{
-        font-size: 16px;
+        font-size: 22px;
         
     }
     .card-options{
         top: 15px;
-        right: 15px;
+        right: 28px;
         z-index: 2222;
 
     }
     .options {
-        width: 76px;
+        width: 96px;
         right: 22px;
         
     }
     .options a{
-        font-size: 14px;
+        font-size: 20px;
         padding: 8px 2px;
         z-index: 2000;
     }
@@ -798,7 +816,7 @@ display: none;
         font-size: 17px;
        }
 .typing-effect{
-    font-size: 24px;
+    font-size: 30px;
 }
 .nav-right {
     flex-direction: column;
@@ -840,7 +858,7 @@ font-size: 20px;
 }
 .navbar-second .right a,
 .navbar-second .right button {
-    font-size: 17px; /* Decrease font size for smaller screens */
+    font-size: 24px; /* Decrease font size for smaller screens */
     margin-right: 1px; /* Adjust margin as needed */
 }
 body {
