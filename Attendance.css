@@ -2,7 +2,7 @@ body {
     background-color: black;
     margin: 0;
     font-family: Arial, sans-serif;
-    background: url('Wallpaper.jpg') no-repeat center top;
+    background: url('Wallpaper.jpg') center top ;
     background-size: cover;
     transition: background-position 1s ease-out;
 }
@@ -38,7 +38,15 @@ body {
 html {
     scroll-behavior: smooth;
 }
+.intro{
+    color:#ff004f ;
+    position: absolute;
+    top: 53%;
+    right: 11%;
+    font-size: 30px;
+    animation: blink 1.2s infinite;
 
+}
 
 .typing-effect {
     position: absolute;
@@ -168,7 +176,7 @@ li {
 }
 
 .card-section {
-    background-color: rgba(7, 7, 7, 7);
+    background-color: rgba(7, 7, 7, 0.85);
     width: 100%;
     display: flex;
     flex-wrap: wrap;
