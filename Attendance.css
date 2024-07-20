@@ -39,11 +39,11 @@ html {
     scroll-behavior: smooth;
 }
 .intro {
-    color: #ff004f;
+    color: black;
     position: absolute;
-    top: 53%;
+    top: 51%;
     right: 11%;
-    font-size: 30px;
+    font-size: 20px;
     text-shadow: 
         -1px -1px 0 #fff,  
         1px -1px 0 #fff,
@@ -58,7 +58,7 @@ html {
     transform: translateY(-50%);
     font-size: 35px;
     font-weight: 900;
-    color:#ff004f;
+    color:#000000;
     
     font-family: 'Courier New', Courier, monospace;
     text-shadow: 
