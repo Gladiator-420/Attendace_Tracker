@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var currentIndex = 0;
     var typedText = document.querySelector(".typed-text");
     var cursor = document.querySelector(".cursor");
-
+    
     function typeEffect() {
         var currentText = elements[currentIndex];
         var typingSpeed = 100;
@@ -159,6 +159,11 @@ function markPresent(button) {
     totalCount++;
 
     updateCard(card, presentCount, totalCount);
+    var presentSound = new Audio('mouseclick.mp3');
+    presentSound.volume = 0.2; // Adjust volume (0.0 to 1.0)
+
+    presentSound.play();
+
 }
 function markAbsent(button) {
     var card = button.closest(".card");
@@ -170,6 +175,13 @@ function markAbsent(button) {
     totalCount++;
 
     updateCard(card, presentCount, totalCount);
+    var presentSound = new Audio('mouseclick.mp3');
+    presentSound.volume = 0.2; // Adjust volume (0.0 to 1.0)
+
+    presentSound.play();
+
+
+
 }
 
 function updateCard(card, presentCount, totalCount) {
