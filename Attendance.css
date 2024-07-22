@@ -1,3 +1,5 @@
+
+
 body {
     background-color: black;
     margin: 0;
@@ -37,6 +39,64 @@ body {
 /* Add your existing CSS here */
 html {
     scroll-behavior: smooth;
+}
+#install-button {
+    margin-left:13px;
+    width: 130px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 20px;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+#install-button:before {
+    content: '';
+    background: linear-gradient(45deg, #ff004f, #d71580, #5412b8, #0d6de2, #01ff95, #1900ff, #7a00ff, #ff00fb, #ff004f);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+#install-button:active {
+    color: #000000
+}
+#install-button:active:after {
+    background: transparent;
+}
+
+
+#install-button:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #232323;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
 }
 .intro {
     color: black;
@@ -702,8 +762,25 @@ footer .highlight {
 
 
 @media screen and (max-width: 768px){
+   #install-button{
+    font-size: 12px;
+    width: 80px;
+    height: 50px;
+   }
+    nav a {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        padding: 10px 9px;
+        font-size: 17px;
+    }
+    .navbar{
+        width: 100%;
+    }
+    .nav-left{
+        font-size: 17px;
+    }
     
- 
+
 .card-container{
     margin-left:11% ;
 }
@@ -852,10 +929,7 @@ footer .highlight {
 .typing-effect{
     font-size: 30px;
 }
-.nav-right {
-    flex-direction: column;
-    align-items: flex-end;
-}
+
 .nav-links {
 
     display: none; /* Hide nav links by default */
@@ -873,11 +947,13 @@ footer .highlight {
 .nav-links.active {
     display: flex; /* Show nav links when active class is added */
 }
+
 .nav-item a{
 font-size: 20px;
 }
 .toggle-button {
-    display: block; /* Show hamburger icon */
+    display: block;
+    /* Show hamburger icon */
 }
 
 .nav-item {
@@ -900,5 +976,9 @@ body {
 }
 .nav-left{
     margin-left: -30px;
-}}
+}
+.toggle-button, #install-button {
+    margin: 0 10px; /* Add margin to space out the icons */
+}
+}
 
