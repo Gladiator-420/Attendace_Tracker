@@ -104,9 +104,7 @@ html {
     right: 11%;
     font-size: 20px;
     text-shadow: 
-        0 0 5px white, 
         0 0 10px white, 
-        0 0 15px white, 
         0 0 20px white;
 }
 
@@ -123,9 +121,7 @@ html {
     
     font-family: 'Courier New', Courier, monospace;
     text-shadow: 
-    0 0 5px white, 
     0 0 10px white, 
-    0 0 15px white, 
     0 0 20px white;
 }
 
@@ -982,3 +978,4 @@ body {
     margin: 0 10px; /* Add margin to space out the icons */
 }
 }
+
