@@ -1,5 +1,4 @@
 
-
 body {
     background-color: black;
     margin: 0;
@@ -105,16 +104,11 @@ html {
     right: 11%;
     font-size: 20px;
     text-shadow: 
-        0 0 5px rgb(255, 0, 0), 
-        0 0 10px rgb(255, 255, 255), 
-        0 0 15px #ff004f, 
-        0 0 20px #ff004f, 
-        0 0 25px blue, 
-        0 0 30px indigo, 
-        0 0 35px purple,
-        0 0 40px white;
+        0 0 5px white, 
+        0 0 10px white, 
+        0 0 15px white, 
+        0 0 20px white;
 }
-
 
 
 
@@ -129,14 +123,10 @@ html {
     
     font-family: 'Courier New', Courier, monospace;
     text-shadow: 
-    0 0 5px rgb(255, 0, 0), 
-    0 0 10px rgb(255, 255, 255), 
-    0 0 15px #ff004f, 
-    0 0 20px #ff004f, 
-    0 0 25px blue, 
-    0 0 30px indigo, 
-    0 0 35px purple,
-    0 0 40px black;
+    0 0 5px white, 
+    0 0 10px white, 
+    0 0 15px white, 
+    0 0 20px white;
 }
 
 .cursor {
@@ -992,4 +982,3 @@ body {
     margin: 0 10px; /* Add margin to space out the icons */
 }
 }
-
