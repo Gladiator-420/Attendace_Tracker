@@ -137,6 +137,19 @@ html {
     50% { opacity: 0; }
     100% { opacity: 1; }
 }
+/* Remove blue highlight on button and link focus */
+button:focus, 
+a:focus {
+    outline: none; /* Removes the outline that appears when focusing */
+    box-shadow: none; /* Removes any box-shadow effect */
+}
+
+/* Remove blue highlight on button and link active state */
+button:active, 
+a:active {
+    outline: none; /* Removes the outline on active state */
+    box-shadow: none; /* Removes any box-shadow effect */
+}
 
 nav {
     background: transparent;
