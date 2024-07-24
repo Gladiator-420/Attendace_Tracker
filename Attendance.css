@@ -105,11 +105,18 @@ html {
     right: 11%;
     font-size: 20px;
     text-shadow: 
-        -1px -1px 0 #fff,  
-        1px -1px 0 #fff,
-        -1px 1px 0 #fff,
-        1px 1px 0 #fff; /* White outline effect */
+        0 0 5px rgb(255, 0, 0), 
+        0 0 10px rgb(255, 255, 255), 
+        0 0 15px #ff004f, 
+        0 0 20px #ff004f, 
+        0 0 25px blue, 
+        0 0 30px indigo, 
+        0 0 35px purple,
+        0 0 40px white;
 }
+
+
+
 
 .typing-effect {
     position: absolute;
@@ -122,10 +129,14 @@ html {
     
     font-family: 'Courier New', Courier, monospace;
     text-shadow: 
-    -1px -1px 0 #fff,  
-    1px -1px 0 #fff,
-    -1px 1px 0 #fff,
-    1px 1px 0 #fff
+    0 0 5px rgb(255, 0, 0), 
+    0 0 10px rgb(255, 255, 255), 
+    0 0 15px #ff004f, 
+    0 0 20px #ff004f, 
+    0 0 25px blue, 
+    0 0 30px indigo, 
+    0 0 35px purple,
+    0 0 40px black;
 }
 
 .cursor {
