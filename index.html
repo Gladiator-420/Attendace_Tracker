@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9599263981746268"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="x icon" href="attendanceicon.png">
     <link rel="manifest" href="/manifest.json">
 
@@ -12,11 +14,15 @@
     <title>Attendance Tracker</title>
     <link rel="stylesheet" href="Attendance.css">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-left">
             <ul>
-                Attendance Tracker
+                <lord-icon src="https://cdn.lordicon.com/zfzufhzk.json" trigger="loop" delay="1000" state="in-dynamic"
+                    colors="primary:#ffffff,secondary:#ff004f,tertiary:#ebe6ef,quaternary:#f9c9c0,quinary:#ee6d66"
+                    style="width:39px;height:39px">
+                </lord-icon> Attendance Tracker
             </ul>
         </div>
         <div class="nav-right">
@@ -30,8 +36,8 @@
             <i class="fas fa-bars toggle-button"></i>
 
         </div>
-    </nav>   
-   
+    </nav>
+
     <div class="typing-effect">
         <span class="typed-text"></span><span class="cursor">&nbsp;</span>
     </div>
@@ -41,12 +47,13 @@
             <div class="left">Manage your Subjects here</div>
             <div class="right">
                 <a href="javascript:void(0)"><i class="fas fa-plus" onclick="addCard(this)"></i></a>
-                <a href="javascript:void(0)"><i class="fas fa-window-restore" onclick="showConfirmationDialog(this)"></i></a>
+                <a href="javascript:void(0)"><i class="fas fa-window-restore"
+                        onclick="showConfirmationDialog(this)"></i></a>
             </div>
         </div>
-        
+
         <div class="card-container" id="card-container">
-             <!-- Initial Cards -->
+            <!-- Initial Cards -->
             <div class="card subject1" data-card-id="subject1">
                 <div class="card-options">
                     <i class="fas fa-chevron-down" onclick="toggleOptions(this)"></i>
@@ -117,8 +124,8 @@
                 </button>
             </div>
         </div>
-          
-            
+
+
     </section>
 
     <!-- Edit Dialog -->
@@ -166,24 +173,25 @@
             <button id="delete-no" onclick="closeDeleteDialog()">No</button>
         </div>
     </div>
-     <!-- Confirmation Dialog for Restore -->
-  <!-- Confirmation Dialog for Restore -->
-<div id="confirmation-dialog" class="confirmation-dialog">
-    <div class="confirmation-dialog-content">
-        <span class="confirm-dialog-close">&times;</span> <!-- Close icon -->
-        <h2>Confirm Restore</h2>
-        <p>Are you sure you want to restore the card section?</p>
-        <div class="confirmation-buttons">
-            <button id="confirm-restore">Yes</button>
-            <button id="cancel-restore">No</button>
+    <!-- Confirmation Dialog for Restore -->
+    <!-- Confirmation Dialog for Restore -->
+    <div id="confirmation-dialog" class="confirmation-dialog">
+        <div class="confirmation-dialog-content">
+            <span class="confirm-dialog-close">&times;</span> <!-- Close icon -->
+            <h2>Confirm Restore</h2>
+            <p>Are you sure you want to restore the card section?</p>
+            <div class="confirmation-buttons">
+                <button id="confirm-restore">Yes</button>
+                <button id="cancel-restore">No</button>
+            </div>
         </div>
     </div>
-</div>
 
-<footer>
-    <p>&copy; <span class="highlight">2024 Swastik Panda. All rights reserved.</span></p>
-</footer>
-</div>
+    <footer>
+        <p>&copy; <span class="highlight">2024 Swastik Panda. All rights reserved.</span></p>
+    </footer>
+    </div>
     <script src="AttendanceTrack.js"></script>
 </body>
+
 </html>
