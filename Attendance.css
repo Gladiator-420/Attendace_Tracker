@@ -137,7 +137,10 @@ html {
     50% { opacity: 0; }
     100% { opacity: 1; }
 }
-
+.lordicon-restore{
+    width: 40px;
+    height: 40px;
+}
 nav {
     background: transparent;
     display: flex;
@@ -976,6 +979,10 @@ body {
 }
 .toggle-button, #install-button {
     margin: 0 10px; /* Add margin to space out the icons */
+}
+.lordicon-restore{
+    height: 25px;
+    width: 25px;
 }
 }
 
