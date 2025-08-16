@@ -856,10 +856,9 @@ footer .highlight {
 }
 /* Media Queries for smaller screens */
 @media screen and (max-width: 480px) {
-   
-    
 
-    .toggle-button {
+
+.toggle-button {
         display: block; /* Show hamburger icon */
     }
  
@@ -986,3 +985,61 @@ body {
 }
 }
 
+.profile-dropdown {
+    
+    position: relative;
+    display: inline-block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dropdown-content {
+    position: absolute;
+    right: 0;
+    background-color: #ffffff;
+    color: #333;
+    min-width: 280px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: center; /* Center text */
+    transition: all 0.3s ease;
+}
+
+.dropdown-content p {
+    margin: 10px 0;
+    font-size: 15px;
+    line-height: 1.4;
+    display: flex;
+    justify-content: center; /* Center inline items */
+    align-items: center;
+    gap: 8px;
+}
+
+
+.dropdown-content p i {
+    font-size: 16px;
+    color: #555;
+}
+
+#logout-button {
+    background-color: #ff004f;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 12px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+#logout-button:hover {
+    background-color: #cc003f;
+}
+.fas.fa-chevron-down.rotated {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
