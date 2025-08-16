@@ -17,7 +17,7 @@ auth.onAuthStateChanged(user => {
         loadAttendanceDetails();
     } else {
         console.log("No user logged in. Redirecting...");
-        window.location.href = 'login/login.html';
+        window.location.href = 'login.html';
     }
 });
 
@@ -351,7 +351,7 @@ if (welcomeUsername) {
         logoutButton.addEventListener('click', () => {
             auth.signOut().then(() => {
                 alert("Logged out successfully");
-                window.location.href = 'login/login.html';
+                window.location.href = 'login.html';
             }).catch((error) => {
                 console.error("Logout error:", error);
             });
