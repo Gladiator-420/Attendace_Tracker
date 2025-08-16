@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Attendance Tracker</title>
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="form-container">
+            <!-- Login Form -->
+            <div id="login-form" class="form-box">
+                <h2 class="form-title">Welcome Back!</h2>
+                <p class="form-subtitle">Log in to track your attendance.</p>
+                <form id="loginFormHandler">
+                    <div class="form-group">
+                        <label for="login-email" class="form-label">Email Address</label>
+                        <input type="email" id="login-email" name="email" class="form-input" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password" class="form-label">Password</label>
+                        <input type="password" id="login-password" name="password" class="form-input" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="submit-button">Log In</button>
+                    <div id="login-message" class="message-area"></div>
+                </form>
+                <p class="switch-form-text">
+                    Don't have an account? 
+                    <a href="#" id="show-register" class="switch-form-link">Sign up</a>
+                </p>
+            </div>
+
+            <!-- Registration Form -->
+            <div id="register-form" class="form-box hidden">
+                <h2 class="form-title">Create Account</h2>
+                <p class="form-subtitle">Get started with your own attendance tracker.</p>
+                <form id="registerFormHandler">
+                     <div class="form-group">
+                        <label for="register-username" class="form-label">Full Name</label>
+                        <input type="text" id="register-username" name="username" class="form-input" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email" class="form-label">Email Address</label>
+                        <input type="email" id="register-email" name="email" class="form-input" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password" class="form-label">Password</label>
+                        <input type="password" id="register-password" name="password" class="form-input" placeholder="Minimum 8 characters" required>
+                    </div>
+                    <button type="submit" class="submit-button">Create Account</button>
+                    <div id="register-message" class="message-area"></div>
+                </form>
+                <p class="switch-form-text">
+                    Already have an account? 
+                    <a href="#" id="show-login" class="switch-form-link">Log in</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs (Software Development Kits) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDDF6hePHwiWB9mB9G8sbJTiAHrBIHnPaw",
+        authDomain: "attandence-tracker-app.firebaseapp.com",
+        projectId: "attandence-tracker-app",
+        storageBucket: "attandence-tracker-app.appspot.com",
+        messagingSenderId: "505667273836",
+        appId: "1:505667273836:web:7f7573080da0cb66470449",
+        measurementId: "G-9KQ5S4K821"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <!-- Link to your external JavaScript file -->
+    <script src="login.js"></script>
+</body>
+</html>

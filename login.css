@@ -1,0 +1,134 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Base body styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-color: #111827; /* Fallback color */
+    background-image: url('https://images.unsplash.com/photo-1533134486753-c833f0ed4866?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+}
+
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 28rem; /* 448px */
+}
+
+.form-box {
+    background-color: rgba(31, 41, 55, 0.5);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.5s;
+}
+
+.form-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+    color: #D1D5DB;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    color: #E5E7EB;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: rgba(55, 65, 81, 0.5);
+    border: 1px solid #4B5563;
+    border-radius: 0.5rem;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+.form-input::placeholder {
+    color: #9CA3AF;
+}
+
+.form-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #EC4899;
+}
+
+.submit-button {
+    width: 100%;
+    background-color: #DB2777;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+    background-color: #BE185D;
+    transform: scale(1.05);
+}
+
+.message-area {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    min-height: 1.25rem; /* Reserve space */
+}
+
+.error-message {
+    color: #F87171;
+}
+
+.success-message {
+    color: #4ADE80;
+}
+
+.switch-form-text {
+    text-align: center;
+    color: #9CA3AF;
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+}
+
+.switch-form-link {
+    font-weight: 500;
+    color: #F9A8D4;
+    text-decoration: none;
+}
+
+.switch-form-link:hover {
+    color: #FBCFE8;
+}
+
+.hidden {
+    display: none;
+}
