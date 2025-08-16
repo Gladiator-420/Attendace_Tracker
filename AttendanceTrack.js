@@ -363,3 +363,37 @@ window.addEventListener('scroll', function () {
   const scrolled = window.scrollY;
   document.body.style.backgroundPositionY = `${-scrolled * 0.5}px`;
 });
+
+// PWA Install Button Logic
+let deferredPrompt;
+const installButton = document.getElementById('install-button');
+
+// Hide button initially
+installButton.style.display = 'none';
+
+// Listen for beforeinstallprompt
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent default prompt
+  e.preventDefault();
+  deferredPrompt = e;
+
+  // Show the custom install button
+  installButton.style.display = 'inline-block';
+
+  installButton.addEventListener('click', async () => {
+    installButton.style.display = 'none';
+    deferredPrompt.prompt();
+
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`User response to the install prompt: ${outcome}`);
+
+    deferredPrompt = null;
+  });
+});
+
+// If already installed, hide the button
+window.addEventListener('appinstalled', () => {
+  console.log('PWA was installed');
+  installButton.style.display = 'none';
+});
+
