@@ -124,6 +124,14 @@ function toggleOptions(element) {
     // Toggle icon rotation
     element.classList.toggle("rotated");
 }
+function confirmDelete() {
+    if (cardToDelete) {
+        cardToDelete.remove();  // Remove the card from the DOM
+        saveAttendanceDetails(); // Save updated list to Firestore
+        showNotification("Card deleted!");
+        closeDeleteDialog(); // Close the dialog
+    }
+}
 
 
 function deleteCard(element) {
@@ -219,21 +227,66 @@ document.getElementById("reset-yes").onclick = function () {
 document.getElementById("reset-no").onclick = () => {
     document.getElementById("reset-dialog").style.display = "none";
 };
-let cardToDelete = null;
+let cardToDelete = null; // Stores the card that needs to be deleted
+
 function showDeleteDialog(card) {
-    cardToDelete = card;
+    cardToDelete = card; // Store the specific card you clicked delete on
     document.getElementById('delete-dialog').style.display = 'flex';
 }
+
 function closeDeleteDialog() {
     document.getElementById('delete-dialog').style.display = 'none';
+    cardToDelete = null; // Clear reference to avoid accidental deletes
 }
+
 function confirmDelete() {
     if (cardToDelete) {
-        cardToDelete.remove();
-        saveAttendanceDetails();
+        cardToDelete.remove();           // ✅ Remove the correct card
+        saveAttendanceDetails();         // ✅ Save updated data to Firestore
+        showNotification("Card deleted!"); // ✅ Optional feedback
     }
-    closeDeleteDialog();
+    closeDeleteDialog(); // ✅ Close the dialog after deleting
 }
+
+// ✅ Attach button listeners AFTER DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    const deleteYesButton = document.getElementById('delete-yes');
+    const deleteNoButton = document.getElementById('delete-no');
+    const deleteDialogClose = document.querySelector('#delete-dialog .confirm-dialog-close');
+
+    if (deleteYesButton) deleteYesButton.addEventListener('click', confirmDelete);
+    if (deleteNoButton) deleteNoButton.addEventListener('click', closeDeleteDialog);
+    if (deleteDialogClose) deleteDialogClose.addEventListener('click', closeDeleteDialog);
+});
+// --- RESTORE DIALOG LOGIC ---
+function showConfirmationDialog() {
+    document.getElementById('confirmation-dialog').style.display = 'flex';
+}
+
+function closeConfirmationDialog() {
+    document.getElementById('confirmation-dialog').style.display = 'none';
+}
+
+async function restoreCards() {
+    // Replace the card section with the default 3 cards
+    const container = document.getElementById("card-container");
+    container.innerHTML = ""; // Clear all cards
+    renderCards(getInitialCards()); // Render default cards
+    await saveAttendanceDetails();  // Save to Firestore
+    showNotification("Card section restored!");
+    closeConfirmationDialog();
+}
+
+// Attach event listeners for restore dialog
+document.addEventListener('DOMContentLoaded', () => {
+    const confirmRestoreButton = document.getElementById('confirm-restore');
+    const cancelRestoreButton = document.getElementById('cancel-restore');
+    const confirmationClose = document.querySelector('#confirmation-dialog .confirm-dialog-close');
+
+    if (confirmRestoreButton) confirmRestoreButton.addEventListener('click', restoreCards);
+    if (cancelRestoreButton) cancelRestoreButton.addEventListener('click', closeConfirmationDialog);
+    if (confirmationClose) confirmationClose.addEventListener('click', closeConfirmationDialog);
+});
 
 // --- Firestore Save and Load Functions (THESE ARE THE IMPORTANT CHANGES) ---
 
@@ -363,7 +416,6 @@ window.addEventListener('scroll', function () {
   const scrolled = window.scrollY;
   document.body.style.backgroundPositionY = `${-scrolled * 0.5}px`;
 });
-
 // PWA Install Button Logic
 let deferredPrompt;
 const installButton = document.getElementById('install-button');
@@ -396,4 +448,3 @@ window.addEventListener('appinstalled', () => {
   console.log('PWA was installed');
   installButton.style.display = 'none';
 });
-
